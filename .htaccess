@@ -1,0 +1,94 @@
+DirectoryIndex index.php
+Options All -Indexes
+
+AddDefaultCharset utf-8
+
+php_flag magic_quotes_gpc off
+php_flag allow_url_fopen on
+php_flag allow_url_include off
+
+php_value upload_max_filesize 20M
+php_value post_max_size 20M
+
+php_flag html_errors on
+php_flag display_errors off
+php_flag display_startup_errors on
+
+php_flag log_errors on
+php_value log_errors_max_len 1024
+php_value error_log /home/a/alshayx0//taxilargus.ru/public_html/logs/php_errors.log
+
+<IfModule mod_deflate.c>
+
+    # Force compression for mangled headers.
+    # http://developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
+
+    # Compress all output labeled with one of the following MIME-types
+    # (for Apache versions below 2.3.7, you don't need to enable `mod_filter`
+    #  and can remove the `<IfModule mod_filter.c>` and `</IfModule>` lines
+    #  as `AddOutputFilterByType` is still in the core directives).
+    <IfModule mod_filter.c>
+        AddOutputFilterByType DEFLATE application/atom+xml \
+                                      application/javascript \
+                                      application/json \
+                                      application/rss+xml \
+                                      application/vnd.ms-fontobject \
+                                      application/x-font-ttf \
+                                      application/x-web-app-manifest+json \
+                                      application/xhtml+xml \
+                                      application/xml \
+                                      font/opentype \
+                                      image/svg+xml \
+                                      image/x-icon \
+                                      text/css \
+                                      text/html \
+                                      text/plain \
+                                      text/x-component \
+                                      text/xml
+	</IfModule>
+
+</IfModule>
+
+<Files .htaccess>
+Order allow,deny
+Deny from all
+</Files>
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+RewriteBase /
+
+RewriteRule ^(.*).html$ index.php?block=$1 [L]
+
+#RewriteCond %{HTTP_USER_AGENT} ^.*AhrefsBot.*$ [NC,OR]
+#RewriteCond %{HTTP_USER_AGENT} ^.*archive\.org\_bot.*$ [NC,OR]
+#RewriteCond %{HTTP_USER_AGENT} ^.*meanpathbot.*$ [NC,OR]
+#RewriteCond %{HTTP_USER_AGENT} ^.*GuzzleHttp.*$ [NC,OR]
+#RewriteCond %{HTTP_USER_AGENT} ^.*majestic12.*$ [NC]
+#RewriteRule .* - [F,L]
+
+RewriteCond %{REQUEST_URI} ^.*eval\(.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*ini_set.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*file_put_contents.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*_REQUEST.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*_GLOBALS.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*_SERVER.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*concat.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*select.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*substring.*$ [NC,OR]
+RewriteCond %{REQUEST_URI} ^.*base64.*$ [NC]
+RewriteRule .* - [F,L]
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_HOST};%{HTTP_REFERER} !^(?:www\.)?([^;]+);.+?\1 [NC]
+RewriteRule \.(jp(e)?g|gif|bmp|png)$ main/styles/nohotlink.jpg [NC,L]
+
+</IfModule>

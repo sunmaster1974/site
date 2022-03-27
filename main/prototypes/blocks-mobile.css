@@ -1,0 +1,268 @@
+/*header*/
+.prototype_mobile_css {
+
+}
+/*/header*/
+
+/*navigation*/
+
+
+#div_contact1 .form_link {
+	position: absolute;
+	top: 10px;
+	right: 120px;
+	color: green;
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: none;
+}
+#div_contact1 .form_text {
+	margin-bottom: 10px;
+}
+#div_contact1 .form_field {
+}
+#div_contact1 .form_submit {
+}
+#div_contact1 #sending {
+	color: silver;
+}
+#div_contact1 #send_success {
+	text-align: center;
+	color: green;
+}
+#div_contact1 #send_error {
+	text-align: center;
+	color: red;
+}
+/*/navigation*/
+
+/*products*/
+
+/*/products*/
+
+/*portofolio*/
+
+/*/portofolio*/
+
+/*feadback*/
+
+/*/feadback*/
+
+/*vip-products*/
+
+/*/vip-products*/
+
+/*about*/
+
+/*/about*/
+
+/*advantages*/
+
+/*/advantages*/
+
+/*action*/
+
+/*/action*/
+
+/*action-deadline*/
+
+/*/action-deadline*/
+
+/*action-signup*/
+
+/*/action-signup*/
+
+/*personnel*/
+
+/*/personnel*/
+
+/*clients*/
+
+/*/clients*/
+
+/*scheme*/
+
+/*/scheme*/
+
+/*faq*/
+
+/*/faq*/
+
+/*reasons*/
+
+/*/reasons*/
+
+/*certificates*/
+
+/*/certificates*/
+
+/*prices*/
+
+/*/prices*/
+
+/*progress*/
+
+/*/progress*/
+
+/*guarantee*/
+
+/*/guarantee*/
+
+/*gallery*/
+
+/*/gallery*/
+
+/*partners*/
+
+/*/partners*/
+
+/*contacts*/
+
+/*/contacts*/
+
+/*footer*/
+
+/*/footer*/
+
+/*header-fixed-ultima*/
+#header-fixed-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/header-fixed-ultima*/
+
+/*hero-slider-ultima*/
+#hero-slider-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/hero-slider-ultima*/
+
+/*features-ultima*/
+#features-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/features-ultima*/
+
+/*charts-ultima*/
+#charts-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/charts-ultima*/
+
+/*gallery-ultima*/
+#gallery-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/gallery-ultima*/
+
+/*pricing-plans-ultima*/
+#pricing-plans-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/pricing-plans-ultima*/
+
+/*faq-ultima*/
+#faq-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/faq-ultima*/
+
+/*testimonials-ultima*/
+#testimonials-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/testimonials-ultima*/
+
+/*mobile-apps-ultima*/
+#mobile-apps-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/mobile-apps-ultima*/
+
+/*team-ultima*/
+#team-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/team-ultima*/
+
+/*contacts-ultima*/
+#contacts-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/contacts-ultima*/
+
+/*social-icons-ultima*/
+#social-icons-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/social-icons-ultima*/
+
+/*footer-ultima*/
+#footer-ultima {
+	position: relative;
+	height: 100px;
+	width: 100%;
+	background-image: url(back.jpg);
+	background-repeat: repeat-x;
+	background-position: 50% 0;
+}
+/*/footer-ultima*/

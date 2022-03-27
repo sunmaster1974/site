@@ -1,0 +1,4 @@
+<Files php_errors.log>
+    order allow,deny
+    deny from all
+</Files>

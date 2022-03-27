@@ -1,0 +1,35 @@
+	<div id="gallery">
+		<div class="container">
+			<div class="row"> 
+				<div class="col-sm-3">
+					<a href="/templates/landkit/images/viber-image01.jpg" data-lightbox="lbox" class="lbox"><img src="/templates/landkit/images/viber-image01-r.jpg" class="img-responsive"></a>
+				</div>
+				<div class="col-sm-3">
+					<a href="/templates/landkit/images/viber-image02.jpg"  data-lightbox="lbox" class="lbox"><img src="/templates/landkit/images/viber-image02-r.jpg" class="img-responsive"></a>
+				</div>
+				<div class="col-sm-3">
+					<a href="/templates/landkit/images/viber-image03.jpg"  data-lightbox="lbox" class="lbox"><img src="/templates/landkit/images/viber-image03-r.jpg" class="img-responsive"></a>
+				</div>
+				<div class="col-sm-3">
+					<a href="/templates/landkit/images/viber-image04.jpg"  data-lightbox="lbox" class="lbox"><img src="/templates/landkit/images/viber-image04-r.jpg" class="img-responsive"></a>
+				</div>
+			</div>
+			<p>
+				&nbsp;
+			</p>
+			<div class="row"> 
+				<div class="col-sm-3">
+					<a href="/templates/landkit/images/viber-image05.jpg"  data-lightbox="lbox" class="lbox"><img src="/templates/landkit/images/viber-image05-r.jpg" class="img-responsive"></a>
+				</div>
+				<div class="col-sm-3">
+					<a href="/templates/landkit/images/viber-image06.jpg"  data-lightbox="lbox" class="lbox"><img src="/templates/landkit/images/viber-image06-r.jpg" class="img-responsive"></a>
+				</div>
+				<div class="col-sm-3">
+					<a href="/templates/landkit/images/viber-image07.jpg"  data-lightbox="lbox" class="lbox"><img src="/templates/landkit/images/viber-image07-r.jpg" class="img-responsive"></a>
+				</div>
+				<div class="col-sm-3">
+					<a href="/templates/landkit/images/viber-image08.jpg"  data-lightbox="lbox" class="lbox"><img src="/templates/landkit/images/viber-image08-r.jpg" class="img-responsive"></a>
+				</div>
+			</div>
+		</div>
+	</div> <!-- #gallery -->

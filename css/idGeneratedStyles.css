@@ -1,0 +1,81 @@
+body, div, dl, dt, dd, h1, h2, h3, h4, h5, h6, p, pre, code, blockquote {
+	margin:1;
+	padding:0;
+	border-width:0;
+	
+}
+body {
+	-epub-hyphens:auto;
+	color:#780BE7;
+	
+}
+header._Header{display: flex; /* flex-контейнер */
+    flex-wrap: wrap; /* многострочный режим */
+	text-align:center;
+	flex-grow: 1;
+	display: inline-block;
+        width: 1200px;
+        max-width: 100%;
+        height: auto;
+	border-width:100px;}
+
+h1 {text-align: center;	
+	width:800px;height:60px;line-height:60px;margin:10px auto;padding:20 0px;background:#008F9F;color:#F4F0E7; ext-align:center;border:4px solid #fff;
+    -moz-box-shadow:0 0 20px #555; -webkit-box-shadow:0 0 20px #555;box-shadow:0 0 20px #555;
+	
+}
+h2 {color:#223211;align-content: center;}
+
+img#_idBannerMain{align-content: flex-start;width: 1200px;max-width: 100%;height: auto;}
+
+
+section.class_Section1 {
+display: flex; /* flex-контейнер */
+    flex-wrap: wrap; /* многострочный режим */
+	text-align:center;
+	display: inline-block;
+        width: 1200px;
+        max-width: 100%;
+        height: auto;
+	border-width:100px;
+	
+}
+
+
+small.class_call{
+	text-align: center;
+	overflow:hidden;
+	position:fixed;width:100px;height:100px;top:10px;left:10px;overflow:hidden;
+	display:inline-block;
+  height:20px;
+  width:150px;
+  border:#0BB133 solid 3px;
+  padding:5px;
+  background-color: #77F5FE;
+  -moz-box-shadow:0 0 20px #555;
+  -webkit-box-shadow:0 0 20px #555;
+  box-shadow:0 0 20px #555
+	  display:block;
+	  color:#39D41A
+	  text-shadow:0 0 20px #f00011;
+	font:bold 1.0em Myriad Pro,myriad,arial,sans-serif;line-height:20px;
+}
+small.class_email{
+	text-align: center;
+	overflow:hidden;
+	position:fixed;width:100px;height:100px;top:50px;left:10px;overflow:hidden;
+	
+  display:inline-block;
+  height:20px;
+  width:150px;
+  border:#0BB133 solid 3px;
+  padding:5px;
+  background-color: #77F5FE;
+  -moz-box-shadow:0 0 20px #555;
+  -webkit-box-shadow:0 0 20px #555;
+  box-shadow:0 0 20px #555
+	  display:block;
+	  color:#39D41A
+	  text-shadow:0 0 20px #f00011;
+	font:bold 1.0em Myriad Pro,myriad,arial,sans-serif;line-height:20px;
+}

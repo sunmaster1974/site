@@ -1,0 +1,14 @@
+<FilesMatch ".(htaccess|php|dat|tpl)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+<Files index.php>
+Order Deny,Allow
+Allow from all
+</Files>
+
+<Files getip.php>
+Order Deny,Allow
+Allow from all
+</Files>

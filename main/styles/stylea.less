@@ -1,0 +1,1457 @@
+
+////////////
+// Gradient background. 
+// First color is the background color to use for browsers that don't support gradients. 
+// The second two colors are the start and stop colors, going from bottom to top.
+////////////
+
+.gradient(@start: #EEE, @stop: #FFF) {
+	background: @start;
+	background: -webkit-linear-gradient(top, @start, @stop);
+    background: -moz-linear-gradient(top, @start, @stop);    
+    background: -ms-linear-gradient(top, @start, @stop);
+	background: -o-linear-gradient(top, @start, @stop);    
+    background: linear-gradient(to bottom, @start, @stop);
+}
+
+
+//////////
+// Quick way to set a 1 pixel thick border that varies its color on each side. 
+// The color values go in a clockwise order: top, right, bottom, left. 
+/////////
+
+.border-color-each(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+  border-top: solid 1px @top-color;
+  border-left: solid 1px @left-color;
+  border-right: solid 1px @right-color;
+  border-bottom: solid 1px @bottom-color;
+}
+
+
+.outer-shadow(@shiftx: 2px, @shifty: 2px, @blur: 2px, @spread: 2px, @color: Gainsboro) {
+  -webkit-box-shadow: @shiftx @shifty @blur @spread @color;
+  -moz-box-shadow: @shiftx @shifty @blur @spread @color;
+  box-shadow: @shiftx @shifty @blur @spread @color;
+}
+
+
+.inner-shadow(@shiftx: 2px, @shifty: 2px, @blur: 2px, @spread: 2px, @color: Gainsboro) {
+  -webkit-box-shadow: inset @shiftx @shifty @blur @spread @color;
+  -moz-box-shadow: inset @shiftx @shifty @blur @spread @color;
+  box-shadow: inset @shiftx @shifty @blur @spread @color;
+}
+
+
+////////////
+// Adds a box-shadow that is a semi-transparent black. 
+// The first two values control the x and y axis position, the third controls blur (how big the shadow is), 
+// and the final value is the opacity (0 is fully transparent, 1 is opaque).
+////////////
+
+.outer-shadow-alpha(@x: 2px, @y: 2px, @blur: 2px, @alpha: 0.5) {
+  -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+
+///////////
+// Sets the inner shadow. The first two numbers are the x and y coordinates, 
+// the third is the blur and the last one is the strength of the shadow.
+///////////
+
+.inner-shadow-alpha(@x: 2px, @y: 2px, @blur: 2px, @alpha: 0.5) {
+  -webkit-box-shadow: inset @x @y @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+
+///////////
+// Sets the box-shadow. The first two numbers are the x and y coordinates, then the blur, and the color. 
+// This is different from drop-shadow in that it takes on a color instead of setting a transparent black shadow. 
+// Additionally, this mixin takes on the whole set of arguments in one go, so no need for commas between each number, 
+// and you can also add "inset" before the first number for inset shadow. 
+//////////
+
+.box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+
+////////////
+//  Sets a border-radius for all 4 corners. 
+// If you want to set border-radius for individual corners use: .border-radius
+////////////
+
+.border-radius(@radius: 4px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+////////////
+// Sets a border-radius for each of the 4 corners individually. 
+// The values go in a clockwise rotation: top right, bottom right, bottom left, top left.
+///////////
+
+.border-radius-each(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+  .background-clip(padding-box);
+}
+
+
+////////////
+// Sets the opacity. 0 is fully transparent, 1 is opaque. 
+///////////
+
+.opacity(@opacity: 0.5) {
+  -moz-opacity: @opacity; // для Mozilla 1.6 и ниже, Firefox 0.8
+  -khtml-opacity: @opacity; // для Safari 1.1, Konqueror 3.1
+  -webkit-opacity: @opacity;
+  @opperc: @opacity * 100;
+  opacity: @opacity;
+}
+
+
+//////////////
+//  Sets a transition-duration (time it takes to do things like hover effects). 
+// The value provides a time in seconds.
+//////////////
+
+.transition-duration(@duration: 0.2s) {
+  -moz-transition-duration: @duration;
+  -webkit-transition-duration: @duration;
+  -o-transition-duration: @duration;
+  transition-duration: @duration;
+}
+
+
+///////////
+// Sets the transition duration and effect to use for any transitions (e.g. hover effects), 
+// unlike transition-duration which only sets the duration. 
+//////////
+
+.transition(@duration: 0.2s, @ease: ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+
+
+.transform(...) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
+
+
+///////////
+// Rotates the item by a number of degrees clockwise. 
+///////////
+
+.rotate(@deg: 5deg){
+  .transform(rotate(@deg));
+}
+
+
+///////////
+// Scales the item by the ratio provided. 
+// The example makes the item 2 times larger. 
+///////////
+
+.scale(@ratio: 1.5){
+  .transform(scale(@ratio));
+}
+
+
+///////////
+// Translates an element using the given coordinates. 
+// The values are x and y offset coordinates, so the above example moves the element right 10 pixels and up 20 pixels. 
+///////////
+
+.translate(@x: 0, @y: 0) {
+  .transform(translate(@x, @y));
+}
+
+
+//////////
+// Allows you to alter the CSS box model. 
+// For example, by setting this to 'border-box' the width and height properties will include the padding and border values. 
+// box-sizing: content-box | border-box | padding-box | inherit
+// More info at MDN https://developer.mozilla.org/en-US/docs/CSS/box-sizing
+//////////
+
+.box-sizing(@sizing: border-box) {
+  -ms-box-sizing: @sizing;
+  -moz-box-sizing: @sizing;
+  -webkit-box-sizing: @sizing;
+  box-sizing: @sizing;
+}
+
+
+//////////
+// Allows you to disable text highlighting, which can be useful on interface elements. 
+//////////
+
+.user-select(@argument: none) {
+  -webkit-user-select: @argument;
+  -moz-user-select: @argument;
+  -ms-user-select: @argument;
+  user-select: @argument;
+}
+
+
+////////////
+// Divides the content into columns. 
+// The variables are: column width, column count, column gap, column border color, column border style, column border width.
+///////////
+
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+
+/////////
+// background-clip: [padding-box | border-box | content-box] [, [padding-box | border-box | content-box]]
+/////////
+
+.background-clip(@argument: padding-box) {
+  -moz-background-clip: @argument;
+  -webkit-background-clip: @argument;
+  background-clip: @argument;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	background-color: @back-input-color;
+	font-family: @font-main-family;
+	font-size: @font-main-size;
+	color: @text-color;
+	cursor: url("default.cur"), default !important;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+.input_text {
+	height: 21px;
+	width: 100%;
+	margin-top: 2px;
+	padding-left: 5px;
+	background-color: @back-input-color;
+	border: 1px solid @border-input-color;
+	.border-radius(4px);
+	font-family: @font-input-family;	
+	font-size: @font-input-size;
+}
+
+.button_submit {
+	min-width: 110px;
+	height: 26px;
+	border: 1px solid lighten(@bright-color, 30%);
+	.gradient(lighten(@border-input-color, 8%), darken(@border-input-color, 7%));
+	.border-radius(4px);
+	.box-shadow(1px 1px 2px 1px @shadow-color);
+	font-family: inherit;
+	font-size: inherit;
+	color: @bright-color;
+	text-align: center;
+	text-shadow: 1px 1px @shadow-color;
+}
+
+.button_long {
+	width: 200px;
+}
+
+a, .button_submit, .upload_file {
+	cursor: url("pointer.cur"), pointer !important;
+}
+
+label, a.icon_arrows {
+	cursor: url("default.cur"), default !important;
+}
+
+a.driver:link, a.driver:active, a.driver:visited, a.driver:hover {
+	color: @link-color;
+	text-decoration: none;
+}
+
+#top_panel {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 99%;
+	height: 25px;
+	margin-left: 1px;
+	padding: 10px 5px;
+	background-color: @back-color;
+	border: 1px solid @main-color;
+	.border-radius(4px);
+	.box-shadow(2px 2px 2px 2px @shadow-color);
+	z-index: 1000;
+}
+
+#center_panel {
+	margin-top: 40px;
+	text-align: center;
+}
+
+.content {
+	width: 80%;
+	margin: 20px auto;
+	padding: 10px;
+}
+
+.main_table {
+	width: 100%;
+	border-collapse: separate;
+	border: 1px solid @main-color;
+	.border-radius(4px);
+	.box-shadow(2px 2px 2px 2px @shadow-color);
+	
+	th {
+		height: 21px;
+		padding: 10px;
+		background-color: @back-color;
+		color: @main-color;
+		font-weight: normal;
+		text-shadow: 1px 1px @shadow-color;
+	}
+	
+	td {
+		height: 52px;
+		padding: 10px;
+		border-top: 1px solid @main-color;
+		vertical-align: middle;
+		word-wrap: break-word;
+	}
+	
+	tr:hover {
+		background-color: @back-acive-color;
+	}
+	
+	th.border_top {
+		border-top: 1px solid @main-color;	
+	}
+
+	.input_text {
+		width: 98%;
+	}
+	
+	textarea {
+		height: 100%;
+		margin: 0px;
+		padding: 5px;
+	}
+	
+	textarea.code  {
+		height: 305px;
+		font-family: @font-code-family;
+		font-size: @font-code-size;
+	}
+	
+	textarea.redactor {
+		height: 505px;
+	}
+	
+	.short_input {
+		width: 55px;
+	}
+}
+
+.caption {
+	color: @main-color;
+	text-shadow: 1px 1px @shadow-color;
+	text-decoration: none;
+}
+
+.border {
+	min-height: 25px;
+	line-height: 25px; /*для выравнивания текста посередине вертикально*/
+	margin: 20px 0px;
+	padding: 10px;
+	background-color: @back-color;
+	border: 1px solid @main-color;
+	.border-radius(4px);
+	.box-shadow(2px 2px 2px 2px @shadow-color);
+}
+
+.margin_top8 {
+	margin-top: 8px;
+}
+
+img.tooltip {
+	padding-top: 4px;
+	margin-bottom: -4px;
+}
+
+select.input_text {
+	height: 25px;
+}
+
+.tabs {
+	float: left;
+	text-align: left;
+	
+	a {
+		display: inline-block;
+		height: 18px;
+		width: 120px;
+		margin-left: -1px;
+		margin-bottom: -1px;
+		padding: 4px 0px;
+		background-color: @back-color;
+		border: 1px solid @main-color;
+		border-bottom: none;
+		.border-radius-each(4px, 4px, 0px, 0px);
+		text-align: center;
+	}
+	
+	a.width109 {
+		width: 109px;
+	}
+	
+	a:hover {
+		background-color: @back-acive-color;
+	}
+	
+	a.active_tab {
+		height: 22px;
+		margin-bottom: -8px;
+		background-color: @back-acive-color;
+		line-height: 18px;
+		overflow: hidden;
+	}
+}
+
+.long_button {
+	width: 175px;
+}
+
+.icon_delete, .icon_edit, .icon_plus, .icon_star, .icon_arrows {
+	text-decoration: none;
+	text-shadow: 1px 1px @shadow-color;
+	font-weight: bold;
+	padding: 3px;
+}
+.icon_plus {
+	font-size: 22px;
+	line-height: 22px;
+	height: 25px;
+	width: 25px;
+}
+.icon_star {
+	font-size: 28px;
+	line-height: 28px;
+	height: 25px;
+	width: 25px;
+}
+.icon_edit {
+	padding-right: 0px;
+}
+.icon_delete {
+	padding-left: 0px;
+	font-family: Verdana;
+}
+span.error, span.success, span.info {
+	display: block;
+}
+span.success, .icon_edit, .icon_plus, .icon_star {
+	color: @success-color;
+}
+span.info, span.info a.error_link {
+	color: @info-color;
+}
+span.error, span.error a.error_link, .icon_delete {
+	color: @error-color;
+}
+span.info a.error_link {
+	border-bottom: 1px dotted @info-color;
+	text-decoration: none;
+}
+span.error a.error_link {
+	border-bottom: 1px dotted @error-color;
+	text-decoration: none;
+}
+img.pictogram {
+	top: 5px;
+	left: 0px;
+	height: 20px;
+	position: relative;
+}
+.icon_arrows {
+	display: inline-block;
+	height: 14px;
+	padding: 0;
+	font-size: 28px;
+	line-height: 10px;
+	color: @main-color;
+}
+table.table_arrows {
+	display: inline;
+	border: none;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
+	vertical-align: middle;
+	
+	td {
+		height: 100%;
+		border: 0;
+		padding: 0;
+	}
+}
+.no_rows {
+	text-align: center;
+	font-size: 12px;
+	font-style: italic;
+}
+.message {
+	display: block;
+	margin: 40px auto;
+}
+#message {
+	display: none;
+	margin: 0;
+	padding: 3px;
+	background-color: @back-input-color;
+	border: 2px solid lighten(@border-input-color, 5%);
+	.border-radius(6px);
+	text-align: center;
+	box-shadow: none;
+}
+.message_inner {
+	padding: 10px;
+	margin: 0;
+	background-color: lighten(@border-input-color, 5%);
+	border: 2px solid lighten(@border-input-color, 5%);
+	.border-radius(6px);
+}
+#message .message_inner span {
+	color: @bright-color !important;
+	text-shadow: 1px 1px @shadow-color !important;
+}
+.copy_name {
+	color: @bright-color;
+}
+.copy_images {
+	padding: 0px;
+	margin-right: 5px;
+	margin-bottom: -3px;
+}
+
+a.setting_link {
+	text-decoration: none;
+}
+a.setting_link:link, a.setting_link:active, a.setting_link:visited, a.setting_link:hover {
+	color: @main-color;
+}
+.link_title {
+	display: inline-block;
+	margin-bottom: 5px;
+}
+input[type="checkbox"] {
+    position: absolute;
+    left: -9999px;
+}
+input[type="checkbox"] + label {
+    display: inline-block;
+    height: 18px;
+	padding-left: 23px;
+    margin: 0 5px 0 0;
+	background: url("checkboxes.png") 0 0 no-repeat;
+}
+input[type="checkbox"] + label.without_text {
+	width: 18px;
+    height: 18px;
+	padding: 0;
+	margin: 0;
+}
+input[type="checkbox"] + label.label_scripts {
+	margin: 0px 20px 0px 10px;
+}
+input[type="checkbox"]:checked + label {
+    background-position: 0 -18px;
+}
+#create_styles_dialog input[type="checkbox"] + label {
+	background: url("checkboxesPeru.png") 0 0 no-repeat;
+}
+#create_styles_dialog input[type="checkbox"]:checked + label {
+    background-position: 0 -18px;
+}
+#create_form_dialog input[type="checkbox"] + label {
+	background: url("checkboxesPeru.png") 0 0 no-repeat;
+}
+#create_form_dialog input[type="checkbox"]:checked + label {
+    background-position: 0 -18px;
+}
+input[type="radio"] {
+    position: absolute;
+    left: -9999px;
+}
+input[type="radio"] + label {
+    display: inline-block;
+    height: 18px;
+	padding-left: 20px;
+    margin: 0 5px 0 0;
+	background: url("radioboxes.png") 0 0 no-repeat;
+}
+input[type="radio"]:checked + label {
+    background-position: 0 -18px;
+}
+#create_styles_dialog input[type="radio"] + label {
+	background: url("radioboxesPeru.png") 0 0 no-repeat;
+}
+#create_styles_dialog input[type="radio"]:checked + label {
+    background-position: 0 -18px;
+}
+
+/*********** Верхнее меню ************/
+.menu_item_non_hover, .menu_item {
+	padding: 3px 10px;
+}
+.menu_item {
+	display: block;
+	border: 1px solid @back-color;
+	width: 90px;
+	height: 20px;
+    margin-top: -2px;
+	color: @main-color;
+	text-align: center;
+	text-shadow: 1px 1px @shadow-color;
+	text-decoration: none;
+}
+.menu_item:hover, .active {
+	background-color: @back-acive-color;
+	border: 1px solid @main-color;
+	.border-radius(4px);
+}
+ul#user_list, #user_list ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	background-color: @back-color;
+	min-width: 130px;
+}
+ul#user_list {
+	height: 30px;
+}
+#user_list ul { 
+	display: none;
+	position: absolute;
+	top: 35px;
+	padding: 7px;	
+	border: 1px solid @main-color;
+	.border-radius(4px);
+	.box-shadow(2px 2px 2px 2px @shadow-color);
+}
+#user_list li {
+	position: relative;
+	float: left;
+	height: 120%;
+	overflow: visible;
+}
+#user_list li:hover ul {
+	display: block;
+}
+#user_list ul li {
+	float: none;
+	text-align: center;
+	min-width: 120px;
+}
+#user_list ul li.hover {
+	border: 1px solid @back-color;
+	.border-radius(4px);
+}
+#user_list ul li.hover:hover {
+	background-color: @back-acive-color;
+	border: 1px solid @main-color;
+	.border-radius(4px);
+}
+#user_list ul li a {
+	display: block;
+	padding: 5px;
+	text-decoration: none;
+	text-align: center;
+}
+.line_horiz {
+	display: block;
+	height: 1px;
+	width: 85%;
+	padding: 0px 5px;
+	margin: 6px 0px 7px 5px;	
+	border-top: 1px solid @main-color;
+}
+.line_vert {
+	display: block;
+	width: 1px;
+	height: 10px;
+	padding: 5px 0px;
+	margin: 2px 5px 0px 5px;
+	border-left: 1px solid @main-color;
+}
+#user_arrow {
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+    right: -3px;
+	width: 0;
+	height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 6px solid @main-color;
+}
+
+/************** Шаблоны **************/
+#templates img.template {
+	max-width: 78px;
+	max-height: 52px;
+	padding: 5px;
+	border: 1px solid @shadow-color;
+}
+#templates img.template_big {
+	max-width: 250px;
+	max-height: 150px;
+	padding: 5px;
+	border: 1px solid @shadow-color;
+}
+#templates input[type="radio"] {
+	padding: 0;
+	margin-right: 5px;
+}
+#templates .upload_form {
+	display: inline-block;
+	width: 28px;
+	height: 28px;
+	text-align: center;
+	cursor: pointer;
+}
+#templates .upload_file {
+	position: relative;
+	top: -30px;
+    left: 0px;
+	height: 25px;
+	width: 25px;
+    padding: 3px;
+    cursor: pointer;
+	.opacity(0);
+    line-height: 30px;
+}
+
+.install_template_block {
+	font-style: italic;
+	margin: 15px 0;
+	color: @bright-color;
+}
+
+.small_table {
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	
+	td {
+		border: none;
+		padding: 0;
+		margin: 0;
+		height: auto;
+	}
+	
+	.layout {
+		margin-top: 5px;
+		width: 200px;
+	}
+}
+
+.server_table {
+	width: 50%;
+	margin: auto;
+	padding: 0;
+	border-collapse: collapse;
+	
+	td {
+		border: 1px solid @border-input-color;
+		padding: 5px;
+		margin: 0;
+	}
+}
+
+.install_table_outer {
+	width: 70%;
+	margin: auto;
+	padding: 0;
+	border-collapse: collapse;
+	border: none;
+	
+	td {
+		border: none;
+	}
+}
+
+.install_table_inner {
+	border-collapse: collapse; 
+	border: 0px solid @border-input-color;
+	
+	th {
+		 border: 1px solid @border-input-color;
+	}
+	
+	td {
+		height: auto;
+		border: 1px solid @border-input-color;
+		padding: 10px;
+		margin: 0;
+	}
+	
+	td input {
+		width: 90% !important;
+	}
+}
+
+.files_updated_table {
+	margin: auto;
+	padding: 0;
+	width: 60%;
+	background-color: @back-input-color;
+}
+
+.styles_table {
+	margin: 5px 0px;
+	
+	td {
+		padding: 3px;
+		white-space: nowrap;
+	}
+	
+	.input_text {
+		font-family: @font-code-family;
+		font-size: @font-code-size;
+		width: 85%;
+	}
+}
+
+.styles_title {
+	display: inline-block; 
+	margin-bottom: 10px;
+	text-decoration: none;
+}
+
+.styles_buttons {
+	padding: 3px;
+	margin-left: 4px;
+	margin-bottom: -5px;
+	cursor: pointer;
+}
+
+.styles_actions {
+	display: block;
+	text-align: right;
+	padding-right: 15px;
+}
+
+/********** Страницы ************/
+#pages select {
+	width: 100%;
+}
+#pages .upload_form {
+	display: inline-block;
+	margin-top: -2px;
+	margin-right: 5px;
+	padding-top: 3px;
+	height: 21px;
+	vertical-align: middle;
+	text-align: center;
+	cursor: pointer;
+}
+#pages .upload_file {
+	position: relative;
+	top: -21px;
+    left: 0px;
+	height: 25px;
+	width: 100px;
+    padding: 0;
+    cursor: pointer;
+	.opacity(0);
+    line-height: 30px;
+}
+#favicon_info {
+	margin-bottom: 10px;
+}
+#div_scripts {
+	background-color: @back-input-color;
+	border: 1px solid @border-input-color; 
+	padding: 3px;
+	margin-right: 4px;
+}
+table.page_double {
+	width: 100%;
+	border-collapse: collapse;
+}
+table.page_double td {
+	padding: 3px;
+}
+
+/********* Заказы ************/
+#orders #orders_count {
+	float: right;
+	padding-top: 5px;
+}
+
+/******** Настройки ***********/
+#promt_form_script textarea {
+	height: 60px;
+    width: 100%;
+}
+
+/********** Мой кабинет ************/
+#account .main_table td {
+	padding: 20px;
+}
+
+/*********** Блоки ****************/
+#blocks textarea.short_width {
+	width: 78%;
+}
+#blocks .upload_form {
+	height: 28px;
+	width: 28px;
+	margin-left: 10px;
+	text-align: center;
+	cursor: pointer;
+}
+#blocks .upload_file {
+	position: relative;
+	top: -30px;
+    left: 0px;
+	height: 25px;
+	width: 25px;
+    padding: 3px;
+    cursor: pointer;
+	.opacity(0);
+    line-height: 30px;
+}
+#blocks img.image_strings {
+	max-width: 47px;
+	max-height: 47px;
+	padding: 5px;
+	border: 1px solid @shadow-color;
+	margin-left: 10px;
+}
+.table_icons, #table_images {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	border: none;
+}
+.table_icons td {
+	border: none;
+	padding: 0;
+	height: 20px;
+}
+#table_images td {
+	text-align: center;
+	vertical-align: middle;
+	padding: 5px;
+}
+#table_images tr {
+	border-top: 1px solid @shadow-color;
+}
+#table_images img {
+	max-width: 350px;
+	max-height: 70px;
+	padding: 5px;	
+	border: 1px solid @shadow-color;
+}
+#table_images a {
+	display: block;
+}
+
+.table_image {
+	display: inline-block; 
+	height: 62px;
+	margin: 0; 
+	padding: 0;
+	
+	td {
+		border: none;
+		height: 62px;
+		margin: 0;
+		padding: 0;
+		vertical-align: middle;
+	}
+}
+
+#prototype_desc textarea {
+	height: 60px;
+	width: 100%;
+}
+
+#table_select_forms {
+	width: 100%;
+	border: 1px solid @shadow-color;
+	border-collapse: collapse;
+	
+	th {
+		height: 30px;
+		border: 1px solid @shadow-color;
+		background-color: @bright-color;
+		color: white;
+	}
+	
+	td {
+		text-align: center;
+		border: 1px solid @shadow-color;
+		padding: 7px;
+	}
+}
+
+/********** Изображения *************/
+#images .input_text {
+	width: 95%;
+}
+#images img {
+	max-width: 430px;
+	max-height: 150px;
+	padding: 5px;
+	border: 1px solid @shadow-color;
+}
+#images img.small {
+	max-height: 70px;
+}
+#images .upload_form {
+	display: inline-block;
+	padding-top: 3px;
+	height: 21px;
+	cursor: pointer;
+}
+#images .upload_file {
+	position: relative;
+	top: -20px;
+    left: 0px;
+	height: 25px;
+    padding: 0;
+    cursor: pointer;
+	opacity: 0;	
+    line-height: 30px;
+}
+#icon_load_photo {
+	text-decoration: none;
+	text-shadow: 1px 1px @shadow-color;
+	cursor: pointer;
+}
+#first_table {
+	border-bottom: none;
+	.border-radius-each(4px, 4px, 0px, 0px);
+}
+#second_table {
+	margin-top: -3px;
+	.border-radius-each(0px, 0px, 4px, 4px);
+	z-index: 10;
+}
+
+/***********CSS-табы***********/
+#css_tabs {
+	width: 100%;
+	
+	p {
+		padding: 0;
+		margin: 0;
+	}
+}
+
+#css_nav {
+	width: 100%;
+	margin: 0px 0px 0px 2px;
+	padding: 0;
+	list-style: none;
+	
+	li {
+		display: inline-block;
+		margin: 0px;
+		margin-left: -1px;
+		padding: 4px 0px;
+		min-width: 110px;
+		background: @back-acive-color;
+		border: 1px solid @border-input-color;
+		border-bottom: 0;
+		.border-radius-each(4px, 4px, 0px, 0px);
+		.border-radius-each(4px, 4px, 0px, 0px);
+		text-align: center;
+	}
+	
+	li.current {
+		background-color: @back-color;
+		padding-top: 8px;
+	}
+	
+	li.current a {
+		display: inline-block;
+	}
+}
+
+#visitors #online_count {
+    float: right;
+    padding-bottom: 5px;
+}
+
+.fancybox-inner {
+	/*height: auto !important;*/
+	background-color: @back-color !important;
+	/*border: 1px solid @main-color !important;*/
+	.border-radius(4px);
+}
+
+#colors .color_square {
+	width: 170px;
+	height: 50px;
+	border: 1px solid @shadow-color;
+	cursor: pointer;
+	.border-radius(4px);
+}
+
+#colors .iColorPicker {
+	display: inline-block;
+	width: 65px;
+	margin-right: 10px;
+}
+
+#colors .main_table td {
+	padding: 10px 0;
+}
+
+.content > div.caption {
+	cursor: url("pointer.cur"), pointer !important;
+}
+
+/************* Visitors *****************/
+#chart1, #chart2 {
+	height: 300px;
+	padding-right: 10px;
+	margin: 0 auto;
+}
+#customTooltipDays, #customTooltipMonths {
+	position: absolute;
+	display: none;
+	color: #666;
+	font-size: 12px;
+	border: 1px solid Gainsboro;
+	border-radius: 4px;
+	background-color: Cornsilk;
+	padding: 3px 7px;
+	z-index: 1000;
+}
+.paginator {
+	color: @main-color;
+	text-decoration: none;
+}
+.active_page {
+	color: @text-color;
+}
+.visitors_page {
+	width: 45px !important;
+	margin: 0 10px;
+	text-align: center;
+	padding-left: 0;
+}
+.inactive {
+	color: @shadow-color !important;
+}
+.stat_links {
+	font-size: 18px;
+	font-weight: bold;
+	color: @main-color;
+	text-shadow: 1px 1px #dcdcdc;
+	margin: 0 10px;
+	text-decoration: none;
+}
+#visitors td.break_word {
+	text-align: center;
+	word-wrap: break-word;
+	word-break: normal;
+}
+#visitors td.break_all {
+	text-align: center;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+a.link_go {
+	display: inline-block;
+    font-size: 12px;
+    font-style: italic;
+    margin-top: 7px;
+	margin-right: 10px;
+}
+
+/************* end of Visitors *****************/
+
+/********** Конструктор форм ***********/
+.table_forms {
+	width: 100%;
+	margin-top: 5px;
+	border-collapse: separate;
+	border-spacing: 5px;
+	
+	td {
+		padding-bottom: 3px;
+		border-bottom: 1px solid silver;
+	}
+
+	td.center {
+		text-align: center;
+	}
+
+	th {
+		padding: 0px 0px 10px 15px;
+		border-bottom: 1px solid silver;
+		color: #5e7aaa;
+		font-weight: normal;
+		text-align: left;	
+		text-shadow: 1px 1px silver;
+	}
+
+	tr.table_title td {
+		padding: 10px;
+		color: silver;
+	}
+}
+
+.checkbox_group {
+	margin-bottom: 7px;
+}
+
+#create_form_dialog .input_text {
+	width: 150px;
+	margin-bottom: 5px;
+	border: 1px solid @bright-color;
+}
+
+#create_form_dialog .class {
+	width: 100px;
+}
+
+#download_settings, #file_settings, #link_settings, #form_settings, #bootstrap_settings, #conf_settings {
+	display: none;
+}
+
+#sending {
+	color: silver;
+}
+
+#send_success {
+	text-align: center;
+	color: @success-color;
+	white-space: nowrap;
+}
+
+#send_error {
+	text-align: center;
+	color: @error-color;
+	white-space: nowrap;
+}
+
+/********** End of Конструктор форм ***********/
+
+/********** Tip-tip Hint ***********/
+#tiptip_content {
+	background-color: lighten(@border-input-color, 5%);
+	padding: 20px;
+	.opacity(0.9);
+	border: 5px solid lighten(@border-input-color, 8%);
+	.border-radius(6px);
+	.box-shadow(1px 1px 2px 1px @shadow-color);
+	font-family: @font-main-family;
+	font-size: @font-main-size;
+	font-weight: normal;
+	color: @bright-color;
+	text-shadow: 1px 1px @shadow-color;
+	text-align: center;
+}
+/******** End of Tip-tip Hint **********/
+
+/********** CSS Generator ***********/
+#create_styles_dialog {
+	height: 100%;
+	
+	td {
+		border: none;
+		padding: 1px;
+		vertical-align: top;
+	}
+	#styles_table {
+		width: 102%;
+		height: 100%;
+		margin-top: 5px;
+		margin-left: -8px;
+	}
+	fieldset {
+		margin: 0px 5px 0px 0px;
+		padding: 5px;
+		border: 1px solid @bright-color;
+		.border-radius(4px);
+	}
+	fieldset table {
+		margin-top: -5px;
+	}
+	fieldset.fieldset_first {
+		margin-top: -12px;
+	}
+	fieldset.fieldset_last {
+		margin-bottom: 7px;
+	}
+	legend {
+		padding: 5px;
+		text-align: left;
+		text-shadow: 1px 1px @shadow-color;
+	}
+	td.row_title {
+		padding-right: 5px;
+		color: @main-color;
+		font-style: italic;
+		text-align: right;
+		vertical-align: middle;
+	}
+	table td.subcaption {
+		text-align: center;
+		padding: 8px;
+		font-weight: bold;
+	}
+	input {
+		margin: 0;
+	}
+	.input_text {
+		font-family: @font-input-family;
+		border: 1px solid @bright-color;
+		width: 75px;
+	}
+	input.value {
+		width: 50px;
+	}
+	select.input_text {
+		width: 300px;
+	}
+	a.r {
+		color: red;
+		text-decoration: none;
+		font-size: 120%;	
+	}
+	a.g {
+		color: green;
+		text-decoration: none;
+		font-size: 120%;	
+	}
+	a.b {
+		color: blue;
+		text-decoration: none;
+		font-size: 120%;	
+	}
+	a.d {
+		color: red;
+		text-decoration: none;
+		font-size: 90%;
+	}
+	a.p {
+		color: @bright-color;
+		text-decoration: none;
+		font-size: 120%;	
+	}
+	a.m {
+		color: @bright-color;
+		text-decoration: none;
+		font-size: 120%;	
+	}
+	.option_image {
+		background-repeat: no-repeat;
+		height: 55px;
+		text-align: right;
+	}
+	#td_example {
+		height: 100%;
+		vertical-align: top;
+		padding: 0;
+		background-color: @back-input-color;
+		border: 1px solid @bright-color;
+		.border-radius(4px);
+		overflow: hidden;
+	}
+	#example {
+		height: 100%;
+		padding: 10px;
+		margin: 0;
+		.border-radius(4px);
+		/* Предустановки генератора стилей*/
+		background-color: #F8F8FF;
+		color: #696969;
+		font-family: Verdana;
+		font-size: 14px;
+		text-shadow: none;
+		font-weight: normal;
+		font-style: normal;
+		text-decoration: none;
+		text-align: left;
+	}
+	#example .titles {
+		/* Предустановки генератора стилей*/
+		color: #483D8B;
+		font-family: Verdana;
+		font-size: 16px;
+		text-shadow: none;
+		font-weight: bold;
+		font-style: normal;
+		text-decoration: none;
+		text-align: center;
+		padding: 15px;
+	}
+	#example a.links {
+		/* Предустановки генератора стилей*/
+		color: #0000FF;
+		font-weight: normal;
+		font-style: normal;
+		text-decoration: underline;
+	}
+	.button_submit {
+		background-color: lighten(@border-input-color, 8%);
+		background-image: none;
+		.box-shadow(1px 1px 0 0 @shadow-color);
+	}
+}
+/********** End of CSS Generator ***********/  

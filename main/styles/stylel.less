@@ -1,0 +1,406 @@
+
+////////////
+// Gradient background. 
+// First color is the background color to use for browsers that don't support gradients. 
+// The second two colors are the start and stop colors, going from bottom to top.
+////////////
+
+.gradient(@start: #EEE, @stop: #FFF) {
+	background: @start;
+	background: -webkit-linear-gradient(top, @start, @stop);
+    background: -moz-linear-gradient(top, @start, @stop);    
+    background: -ms-linear-gradient(top, @start, @stop);
+	background: -o-linear-gradient(top, @start, @stop);    
+    background: linear-gradient(to bottom, @start, @stop);
+}
+
+
+//////////
+// Quick way to set a 1 pixel thick border that varies its color on each side. 
+// The color values go in a clockwise order: top, right, bottom, left. 
+/////////
+
+.border-color-each(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+  border-top: solid 1px @top-color;
+  border-left: solid 1px @left-color;
+  border-right: solid 1px @right-color;
+  border-bottom: solid 1px @bottom-color;
+}
+
+
+.outer-shadow(@shiftx: 2px, @shifty: 2px, @blur: 2px, @spread: 2px, @color: Gainsboro) {
+  -webkit-box-shadow: @shiftx @shifty @blur @spread @color;
+  -moz-box-shadow: @shiftx @shifty @blur @spread @color;
+  box-shadow: @shiftx @shifty @blur @spread @color;
+}
+
+
+.inner-shadow(@shiftx: 2px, @shifty: 2px, @blur: 2px, @spread: 2px, @color: Gainsboro) {
+  -webkit-box-shadow: inset @shiftx @shifty @blur @spread @color;
+  -moz-box-shadow: inset @shiftx @shifty @blur @spread @color;
+  box-shadow: inset @shiftx @shifty @blur @spread @color;
+}
+
+
+////////////
+// Adds a box-shadow that is a semi-transparent black. 
+// The first two values control the x and y axis position, the third controls blur (how big the shadow is), 
+// and the final value is the opacity (0 is fully transparent, 1 is opaque).
+////////////
+
+.outer-shadow-alpha(@x: 2px, @y: 2px, @blur: 2px, @alpha: 0.5) {
+  -webkit-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow: @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+
+///////////
+// Sets the inner shadow. The first two numbers are the x and y coordinates, 
+// the third is the blur and the last one is the strength of the shadow.
+///////////
+
+.inner-shadow-alpha(@x: 2px, @y: 2px, @blur: 2px, @alpha: 0.5) {
+  -webkit-box-shadow: inset @x @y @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @x @y @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @x @y @blur rgba(0, 0, 0, @alpha);
+}
+
+
+///////////
+// Sets the box-shadow. The first two numbers are the x and y coordinates, then the blur, and the color. 
+// This is different from drop-shadow in that it takes on a color instead of setting a transparent black shadow. 
+// Additionally, this mixin takes on the whole set of arguments in one go, so no need for commas between each number, 
+// and you can also add "inset" before the first number for inset shadow. 
+//////////
+
+.box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+
+
+////////////
+//  Sets a border-radius for all 4 corners. 
+// If you want to set border-radius for individual corners use: .border-radius
+////////////
+
+.border-radius(@radius: 4px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+////////////
+// Sets a border-radius for each of the 4 corners individually. 
+// The values go in a clockwise rotation: top right, bottom right, bottom left, top left.
+///////////
+
+.border-radius-each(@topleft: 0, @topright: 0, @bottomright: 0, @bottomleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+  .background-clip(padding-box);
+}
+
+
+////////////
+// Sets the opacity. 0 is fully transparent, 1 is opaque. 
+///////////
+
+.opacity(@opacity: 0.5) {
+  -moz-opacity: @opacity; // для Mozilla 1.6 и ниже, Firefox 0.8
+  -khtml-opacity: @opacity; // для Safari 1.1, Konqueror 3.1
+  -webkit-opacity: @opacity;
+  @opperc: @opacity * 100;
+  opacity: @opacity;
+}
+
+
+//////////////
+//  Sets a transition-duration (time it takes to do things like hover effects). 
+// The value provides a time in seconds.
+//////////////
+
+.transition-duration(@duration: 0.2s) {
+  -moz-transition-duration: @duration;
+  -webkit-transition-duration: @duration;
+  -o-transition-duration: @duration;
+  transition-duration: @duration;
+}
+
+
+///////////
+// Sets the transition duration and effect to use for any transitions (e.g. hover effects), 
+// unlike transition-duration which only sets the duration. 
+//////////
+
+.transition(@duration: 0.2s, @ease: ease-out) {
+  -webkit-transition: all @duration @ease;
+  -moz-transition: all @duration @ease;
+  -o-transition: all @duration @ease;
+  transition: all @duration @ease;
+}
+
+
+.transform(...) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
+
+
+///////////
+// Rotates the item by a number of degrees clockwise. 
+///////////
+
+.rotate(@deg: 5deg){
+  .transform(rotate(@deg));
+}
+
+
+///////////
+// Scales the item by the ratio provided. 
+// The example makes the item 2 times larger. 
+///////////
+
+.scale(@ratio: 1.5){
+  .transform(scale(@ratio));
+}
+
+
+///////////
+// Translates an element using the given coordinates. 
+// The values are x and y offset coordinates, so the above example moves the element right 10 pixels and up 20 pixels. 
+///////////
+
+.translate(@x: 0, @y: 0) {
+  .transform(translate(@x, @y));
+}
+
+
+//////////
+// Allows you to alter the CSS box model. 
+// For example, by setting this to 'border-box' the width and height properties will include the padding and border values. 
+// box-sizing: content-box | border-box | padding-box | inherit
+// More info at MDN https://developer.mozilla.org/en-US/docs/CSS/box-sizing
+//////////
+
+.box-sizing(@sizing: border-box) {
+  -ms-box-sizing: @sizing;
+  -moz-box-sizing: @sizing;
+  -webkit-box-sizing: @sizing;
+  box-sizing: @sizing;
+}
+
+
+//////////
+// Allows you to disable text highlighting, which can be useful on interface elements. 
+//////////
+
+.user-select(@argument: none) {
+  -webkit-user-select: @argument;
+  -moz-user-select: @argument;
+  -ms-user-select: @argument;
+  user-select: @argument;
+}
+
+
+////////////
+// Divides the content into columns. 
+// The variables are: column width, column count, column gap, column border color, column border style, column border width.
+///////////
+
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+
+/////////
+// background-clip: [padding-box | border-box | content-box] [, [padding-box | border-box | content-box]]
+/////////
+
+.background-clip(@argument: padding-box) {
+  -moz-background-clip: @argument;
+  -webkit-background-clip: @argument;
+  background-clip: @argument;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	background-color: @back-input-color;
+	font-family: @font-main-family;
+	font-size: @font-main-size;
+	color: @text-color;
+	cursor: url("default.cur"), default !important;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+.input_text {
+	height: 21px;
+	width: 100%;
+	margin-top: 2px;
+	padding-left: 5px;
+	background-color: @back-input-color;
+	border: 1px solid @border-input-color;
+	.border-radius(4px);
+	font-family: @font-input-family;	
+	font-size: @font-input-size;
+}
+
+.button_submit {
+	min-width: 110px;
+	height: 26px;
+	border: 1px solid lighten(@bright-color, 30%);
+	.gradient(lighten(@border-input-color, 8%), darken(@border-input-color, 7%));
+	.border-radius(4px);
+	.box-shadow(1px 1px 2px 1px @shadow-color);
+	font-family: inherit;
+	font-size: inherit;
+	color: @bright-color;
+	text-align: center;
+	text-shadow: 1px 1px @shadow-color;
+}
+
+.button_long {
+	width: 200px;
+}
+
+a, .button_submit, .upload_file {
+	cursor: url("pointer.cur"), pointer !important;
+}
+
+label, a.icon_arrows {
+	cursor: url("default.cur"), default !important;
+}
+
+a.driver:link, a.driver:active, a.driver:visited, a.driver:hover {
+	color: @link-color;
+	text-decoration: none;
+}
+
+#top_caption {
+	padding: 15px 0px;
+	margin: 15px auto;
+	text-align: center;
+	font-size: 18px;
+	color: saturate(@main-color, 10%);
+	text-shadow: 1px 1px 1px lighten(@bright-color, 10%);
+}
+
+.links {
+	margin: 10px;
+    color: lighten(@bright-color, 10%);
+	font-size: 12px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#bottom_caption {
+	text-align: center;
+	padding-top: 15px;
+	margin-top: 15px;
+}
+
+.login_window {
+    margin: 0 auto;
+	width: 400px;
+	padding-bottom: 15px;
+	border: 1px solid @shadow-color;
+	.border-radius(4px);
+	.box-shadow(2px 2px 2px 2px @shadow-color);	
+	background-color: @back-color;
+    font-family: @font-main-family;
+	font-size: @font-main-size;
+	
+	table {
+		width: 100%;
+		padding: 10px;
+	}
+	
+	.button_submit {
+		margin-top: 10px;
+		width: 120px;
+	}
+}
+
+.caption {    
+    margin: 10px;
+	font-weight: bold;    
+}
+
+.text {
+	color: @main-color;
+	text-shadow: 1px 1px @shadow-color;
+}
+
+#icon_main, #icon_info {
+    width: 80px;
+    height: 80px;
+    float: left;
+    background-image: url("icon.gif");
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#icon_info {
+    background-image: url("icon2.gif");
+	height: 50px;
+}
+
+.window {
+	width: 270px;
+    margin-left: 80px;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid @shadow-color;
+	background-color: @back-acive-color;
+	.border-radius(4px);
+	
+	td {
+		font-family: inherit;
+		font-size: inherit;
+	}
+}
+
+#link_restore {
+	position: relative;
+	left: 135px;
+	
+	a {
+		color: darken(@back-acive-color, 30%);
+	}
+}                      

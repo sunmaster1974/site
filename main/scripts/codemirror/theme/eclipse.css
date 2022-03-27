@@ -1,0 +1,23 @@
+.cm-s-eclipse span.cm-meta { color: Magenta; }
+.cm-s-eclipse span.cm-keyword { color: Blue; } /* Служебные слова в Javascript */
+.cm-s-eclipse span.cm-atom { color: Blue; } /* Имена функций в Javascript*/
+.cm-s-eclipse span.cm-number { color: Black; } /* Текст в html */
+.cm-s-eclipse span.cm-def { color: Blue; } /* Переменные в Javascript */
+.cm-s-eclipse span.cm-variable { color: Blue; }
+.cm-s-eclipse span.cm-variable-2 { color: MediumBlue; }
+.cm-s-eclipse span.cm-variable-3 { color: MediumBlue; }
+.cm-s-eclipse span.cm-property { color: DeepPink; } /* Совйства и параметры функций в Javascript */
+.cm-s-eclipse span.cm-operator { color: Blue; }
+.cm-s-eclipse span.cm-comment { color: #32b431; } /* Комментарии в html и Javascript */
+.cm-s-eclipse span.cm-string { color: BlueViolet; } /* Строки в html и Javascript */
+.cm-s-eclipse span.cm-string-2 { color: BlueViolet; }
+.cm-s-eclipse span.cm-qualifier { color: Orange; }
+.cm-s-eclipse span.cm-builtin { color: Orange; }
+.cm-s-eclipse span.cm-bracket { color: Orange; }
+.cm-s-eclipse span.cm-tag { color: #3b73ee; } /* Теги в html */
+.cm-s-eclipse span.cm-attribute { color: DeepPink; } /* Аттрибуты тегов в html */
+.cm-s-eclipse span.cm-link { color: Fuchsia; }
+.cm-s-eclipse span.cm-error { color: #fa625e; }
+
+.cm-s-eclipse .CodeMirror-activeline-background { background: White; }
+.cm-s-eclipse .CodeMirror-matchingbracket { outline: 1px solid Grey; color: Black !important; }

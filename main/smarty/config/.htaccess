@@ -1,0 +1,8 @@
+<Files connect.php>
+    order allow,deny
+    deny from all
+</Files>
+<Files license.txt>
+    order allow,deny
+    deny from all
+</Files>
